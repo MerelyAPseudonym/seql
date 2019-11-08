@@ -35,24 +35,24 @@ query results
 (query env
        :account
        [:account/name
-	    :account/state
-		{:account/users [:user/email]}])
+        :account/state
+        {:account/users [:user/email]}])
 
 ;; =>
 
 [#:account{:name "org1"
            :state :active
-		   :users [#:user{:email "first@example.com"}
-		           #:user{:email "second@example.com"}]}
+           :users [#:user{:email "first@example.com"}
+                   #:user{:email "second@example.com"}]}
  #:account{:name "org2"
            :state :suspended
-		   :users [#:user{:email "bad@example.com"}
-		           #:user{:email "worst@example.com"}]}]
+           :users [#:user{:email "bad@example.com"}
+                   #:user{:email "worst@example.com"}]}]
 
 (mutate! env
          :account/new-organization
-		 #:account{:name "org3"
-		           :users [#:user{:email "hello@example.com"}]})
+         #:account{:name "org3"
+                   :users [#:user{:email "hello@example.com"}]})
 ```
 
 **seql** is built on top of
